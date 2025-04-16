@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Models\**" />
+    <Compile Remove="Areas\SuperAdmin\Data\**" />
+    <Compile Remove="Areas\SuperAdmin\Models\**" />
+    <Compile Remove="Areas\TeacherArea\**" />
+    <Content Remove="Areas\Admin\Models\**" />
+    <Content Remove="Areas\SuperAdmin\Data\**" />
+    <Content Remove="Areas\SuperAdmin\Models\**" />
+    <Content Remove="Areas\TeacherArea\**" />
+    <EmbeddedResource Remove="Areas\Admin\Models\**" />
+    <EmbeddedResource Remove="Areas\SuperAdmin\Data\**" />
+    <EmbeddedResource Remove="Areas\SuperAdmin\Models\**" />
+    <EmbeddedResource Remove="Areas\TeacherArea\**" />
+    <None Remove="Areas\Admin\Models\**" />
+    <None Remove="Areas\SuperAdmin\Data\**" />
+    <None Remove="Areas\SuperAdmin\Models\**" />
+    <None Remove="Areas\TeacherArea\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\admin\documentation\.DS_Store" />
+    <None Include="wwwroot\admin\fonts\.DS_Store" />
+    <None Include="wwwroot\admin\fonts\Roboto\.DS_Store" />
+    <None Include="wwwroot\admin\images\.DS_Store" />
+    <None Include="wwwroot\admin\images\auth\.DS_Store" />
+    <None Include="wwwroot\admin\images\faces\.DS_Store" />
+    <None Include="wwwroot\admin\js\.DS_Store" />
+    <None Include="wwwroot\admin\scss\.DS_Store" />
+    <None Include="wwwroot\admin\scss\components\.DS_Store" />
+    <None Include="wwwroot\admin\scss\mixins\.DS_Store" />
+    <None Include="wwwroot\admin\vendors\.DS_Store" />
+    <None Include="wwwroot\css\style.css.map" />
+    <None Include="wwwroot\images\images\Dribbble.svg" />
+    <None Include="wwwroot\images\images\Facebook.svg" />
+    <None Include="wwwroot\images\images\icon-2.svg" />
+    <None Include="wwwroot\images\images\icon-3.svg" />
+    <None Include="wwwroot\images\images\icon-4.svg" />
+    <None Include="wwwroot\images\images\icon-5.svg" />
+    <None Include="wwwroot\images\images\icon-6.svg" />
+    <None Include="wwwroot\images\images\icon-chevron-down.svg" />
+    <None Include="wwwroot\images\images\icon.svg" />
+    <None Include="wwwroot\images\images\Logo Mark %281%29.svg" />
+    <None Include="wwwroot\images\images\Logo-bw.svg" />
+    <None Include="wwwroot\images\images\Logo.svg" />
+    <None Include="wwwroot\images\images\menu-right-lined.svg" />
+    <None Include="wwwroot\images\images\Twitter.svg" />
+    <None Include="wwwroot\images\images\YouTube.svg" />
+    <None Include="wwwroot\js\app.js" />
+    <None Include="wwwroot\js\chat.js" />
+    <None Include="wwwroot\js\contact.js" />
+    <None Include="wwwroot\js\script.js" />
+    <None Include="wwwroot\js\text.js" />
+    <None Include="wwwroot\plugins\bootstrap\bootstrap.min.js" />
+    <None Include="wwwroot\plugins\fontawesome\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\plugins\fontawesome\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\plugins\fontawesome\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\plugins\fontawesome\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\plugins\fontawesome\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\plugins\fontawesome\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\plugins\icofont\fonts\icofont.svg" />
+    <None Include="wwwroot\plugins\icofont\fonts\icofont.woff2" />
+    <None Include="wwwroot\plugins\jquery\jquery.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dotenv.net" Version="3.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="Twilio" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Teacher\Models\" />
+  </ItemGroup>
+
+</Project>

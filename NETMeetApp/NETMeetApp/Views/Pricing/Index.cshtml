@@ -1,0 +1,148 @@
+﻿    <!--MAIN HEADER AREA END -->
+<div class="page-banner-area page-contact" id="page-banner">
+    <div class="overlay dark-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                <div class="banner-content content-padding fade-in">
+                    <h1 class="text-white">Standard Price plan</h1>
+                    <p>
+                        Subscriptions which we offer to our users
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PRICE AREA START  -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 m-auto">
+                <div class="section-heading">
+                    <h4 class="section-title">Affordable pricing plan for you</h4>
+                    <p>
+                        We have different type of pricing table to choose with your
+                        need. Check which one is most suitble for you and your business
+                        purpose.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="pricing-block fade-in">
+                    <div class="price-header">
+                        <i class="icofont-diamond"></i>
+                        <h4 class="price">
+                            <small>
+                                ₼
+                            </small>20
+                        </h4>
+                        <h5>Monthly pack</h5>
+                    </div>
+                    <div class="line"></div>
+                    <ul>
+                        <li>5 GB Bandwidth</li>
+                        <li>Highest Speed</li>
+                        <li>1 GB Storage</li>
+                        <li>Unlimited Website</li>
+                        <li>Unlimited Users</li>
+                        <li>Data Security and Backups</li>
+                        <li>24x7 Great Support</li>
+                        <li>Monthly Reports and Analytics</li>
+                    </ul>
+
+                    <a href="contact.html" class="btn btn-hero btn-circled">select plan</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="pricing-block fade-in">
+                    <div class="price-header">
+                        <i class="icofont-rocket-alt-1"></i>
+
+                        <h4 class="price">
+                            <small>
+                                ₼
+                            </small>50
+                        </h4>
+                        <h5>Yearly pack</h5>
+                    </div>
+                    <div class="line"></div>
+                    <ul>
+                        <li>5 GB Bandwidth</li>
+                        <li>Highest Speed</li>
+                        <li>1 GB Storage</li>
+                        <li>Unlimited Website</li>
+                        <li>Unlimited Users</li>
+                        <li>Data Security and Backups</li>
+                        <li>24x7 Great Support</li>
+                        <li>Monthly Reports and Analytics</li>
+                    </ul>
+
+                    <a href="contact.html" class="btn btn-hero btn-circled">select plan</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="pricing-block fade-in">
+                    <div class="price-header">
+                        <i class="icofont-light-bulb"></i>
+
+                        <h4 class="price">
+                            <small>
+                                ₼
+                            </small>100
+                        </h4>
+                        <h5>Lifetime pack</h5>
+                    </div>
+                    <div class="line"></div>
+                    <ul>
+                        <li>5 GB Bandwidth</li>
+                        <li>Highest Speed</li>
+                        <li>1 GB Storage</li>
+                        <li>Unlimited Website</li>
+                        <li>Unlimited Users</li>
+                        <li>Data Security and Backups</li>
+                        <li>24x7 Great Support</li>
+                        <li>Monthly Reports and Analytics</li>
+                    </ul>
+
+                    <a href="contact.html" class="btn btn-hero btn-circled">select plan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main jQuery -->
+<script src="~/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap css -->
+<script src="~/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- Intersection Observer for animations -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let observer = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(function (el) {
+            observer.observe(el);
+        });
+    });
+
+    $(document).scroll(function () {
+        var $nav = $(".navbar");
+        $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+    });
+</script>
+<!-- PRICE AREA END  -->

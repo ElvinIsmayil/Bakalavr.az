@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ** Basic Page Needs ** -->
+    <meta charset="utf-8" />
+    <title>Bakalavr.az</title>
+
+    <!-- ** Mobile Specific Metas ** -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Bakalavr.az" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="author" content="Bakalavr.az" />
+    <meta name="generator" content="Bakalavr.az" />
+
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="~/plugins/bootstrap/bootstrap.min.css" />
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="~/plugins/fontawesome/css/all.css" />
+    <!-- Icofont -->
+    <link rel="stylesheet" href="~/plugins/icofont/icofont.css" />
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Main Stylesheet -->
+    @RenderSection("PageSpecificStyles", required: false)
+    @RenderSection("PageSpecificStyles2", required: false)
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Favicon-->
+    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+</head>
+<body data-spy="scroll" data-target="#mainNav">
+    <nav class="navbar navbar-expand-lg fixed-top trans-navigation" data-aos="fade-down">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Bakalavr.az
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fa fa-bars"></i>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link smoth-scroll" asp-action="Index" asp-controller="Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link smoth-scroll" asp-action="Index" asp-controller="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link smoth-scroll" asp-action="Index" asp-controller="Pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link smoth-scroll" asp-action="Index" asp-controller="Faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link smoth-scroll" asp-action="Index" asp-controller="Contact">Contact</a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link smoth-scroll" asp-action="ChatBox" asp-controller="Chat">Chat</a>
+                        </li>
+                    }
+                    <li class="nav-item me-3">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i> @User.Identity.Name
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Profile">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-action="Logout" asp-controller="Account">Log Out</a></li>
+                            </ul>
+                        </li>
+                        }
+                        else
+                        {
+                            <a class="nav-link smoth-scroll" asp-action="Login" asp-controller="Account"><i class="fa-solid fa-user"></i> Login</a>
+                        }
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                        <li class="nav-item me-3">
+                            <a class="nav-link smoth-scroll" asp-action="Register" asp-controller="Account">Register</a>
+                        </li>
+                        }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+    <section id="footer" class="section-padding">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-lg-4">
+                    <div class="footer-widget footer-link" data-aos="fade-up">
+                        <h4>
+                            Our goal is to enhance<br />
+                            virtual education
+                        </h4>
+                        <p>
+                            We strive to create an engaging and interactive learning environment that bridges the gap
+                            between students and educators. By leveraging cutting-edge technology, we aim to make online
+                            education more accessible, effective, and enjoyable for everyone involved.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-widget footer-link" data-aos="fade-up" data-aos-delay="100">
+                        <h4>About</h4>
+                        <ul>
+                            <li><a asp-action="Index" asp-controller="About">About</a></li>
+                            <li><a asp-action="Index" asp-controller="Pricing">Pricing</a></li>
+                            <li><a asp-action="Index" asp-controller="About">Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-widget footer-link" data-aos="fade-up" data-aos-delay="200">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a asp-action="Index" asp-controller="Contact">Support</a></li>
+                            <li><a href="terms.html">Terms & Condition</a></li>
+                            <li><a asp-action="Index" asp-controller="Faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <div class="footer-widget footer-text" data-aos="fade-up" data-aos-delay="300">
+                        <h4>Our location</h4>
+                        <p class="mail"><span>Mail:</span>bakalavr.help@gmail.com</p>
+                        <p><span>Phone :</span>+994 995 45 05 05</p>
+                        <p>
+                            <span>Location:</span>241 Abbas Mirza Sharifzadeh St
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="footer-copy" data-aos="fade-up" data-aos-delay="400">
+                        Copyright &copy; 2024, Designed &amp; Developed by
+                        <a>Elvin Ismayil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!--  FOOTER AREA END  -->
+    <!--
+    Essential Scripts
+    =====================================-->
+
+    <!-- Google Map -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6680a5259d7f358570d565e2/1i1j8a6l1';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!-- Main jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+    <script src="~/js/text.js"></script>
+    <script src="~/plugins/google-map/map.js"></script>
+
+    <!-- main script -->
+    <script src="~/js/script.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>

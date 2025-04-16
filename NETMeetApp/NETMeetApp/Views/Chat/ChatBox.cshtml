@@ -1,0 +1,160 @@
+﻿<link rel="stylesheet" href="~/css/chat.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+           />
+<div class="container" style="margin-top:70px;">
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card chat-app">
+                <div id="plist" class="people-list">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Search..." />
+                    </div>
+                    <ul id="clientList" class="list-unstyled chat-list mt-2 mb-0">
+                        @foreach (AppUser user in ViewBag.Users)
+                        {
+                            if (user.Connectionid is not null && ViewBag.ExistUser.Result != user)
+                            {
+                                    <li id="@user.Id" class="clearfix">
+                                        @if (user.imageUrl is not null)
+                                        {
+                                            <img src="~/images/@user.imageUrl"
+                                                 alt="avatar" />
+                                        }
+                                        <div class="about">
+                                            <div class="name">@user.FullName</div>
+                                            <div class="status">
+                                                <i class="fa fa-circle online"></i> Online
+                                            </div>
+                                        </div>
+                                    </li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="chat">
+
+                    <div id="general-profile" class="chat-header clearfix d-block">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="javascript:void(0);"
+                                   data-toggle="modal"
+                                   data-target="#view_info">
+                                </a>
+                                <div class="chat-about">
+                                    <h6 class="m-b-0">General Chat</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @foreach (AppUser user in ViewBag.Users)
+                    {
+                        @if (user.Connectionid is not null && ViewBag.ExistUser.Result != user)
+                        {
+                                <div id="profile-@user.Id" class="chat-header clearfix d-none">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <a href="javascript:void(0);"
+                                               data-toggle="modal"
+                                               data-target="#view_info">
+                                                @if (user.imageUrl is not null)
+                                                {
+                                                    <img src="~/images/@user.imageUrl"
+                                                         alt="avatar" />
+                                                }
+                                            </a>
+                                            <div class="chat-about">
+                                                <h6 class="m-b-0">@user.FullName</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        }
+                    }
+                    <div id="general-chat" class="chat-history d-block">
+                        <ul class="m-b-0" id="">
+                        </ul>
+                    </div>
+
+                    @foreach (AppUser user in ViewBag.Users)
+                    {
+                        @if (user.Connectionid is not null && ViewBag.ExistUser.Result != user)
+                        {
+                                <div id="chat-@user.Id" class="chat-history d-none">
+                                    <ul class="m-b-0">
+                                        <li class="clearfix">
+                                            <div class="message-data d-flex justify-content-end">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                                     alt="avatar"
+                                                     class="avatar" />
+                                                <span class="message-data-name">Christian Kelly</span>
+                                                <span class="message-data-time">10:10 AM, Today</span>
+                                            </div>
+                                            <div class="message other-message float-right">
+                                                Hi Aiden, how are you? How is the project coming along?
+                                            </div>
+                                        </li>
+                                        <li class="clearfix">
+                                            <div class="message-data">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png"
+                                                     alt="avatar"
+                                                     class="avatar" />
+                                                <span class="message-data-name">Aiden Chavez</span>
+                                                <span class="message-data-time">10:15 AM, Today</span>
+                                            </div>
+                                            <div class="message my-message">
+                                                Project has been already finished and I have results to
+                                                show you.
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                        }
+                    }
+
+                    <div id="general-chat-message" class="chat-message clearfix d-block">
+                        <div class="input-group mb-0">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <button id="send-btn-general" class="fa fa-send"></button>
+                                    </span>
+                                </div>
+                                <input name="message" type="text"
+                                       class="form-control" id="general-message-input"
+                                       placeholder="Enter text here..." />
+                        </div>
+                    </div>
+
+                    @foreach (AppUser user in ViewBag.Users)
+                    {
+                        @if (user.Connectionid is not null && ViewBag.ExistUser.Result != user)
+                        {
+                                <div id="chat-@user.Id" class="chat-message clearfix d-none">
+                                    <div class="input-group mb-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <button data-id="@user.Id" id="send-btn" class="fa fa-send"></button>
+                                                </span>
+                                            </div>
+                                            <input name="message" type="text"
+                                                   class="form-control" id="message-input"
+                                                   placeholder="Enter text here..." />
+                                    </div>
+                                </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js" integrity="sha512-7rhBJh1om/W5Ztx7WiYOR9h2wlSaTmPyQMoHFtbT/FVNIA12y6S6I8HY9mrBS1uJ3dSU/R3qaSAXsGYuRjMDxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="~/js/chat.js"></script>
